@@ -183,3 +183,217 @@ public class Selene extends Cat {
 
 
 }
+
+
+
+
+
+
+
+
+
+updated selene ->
+
+
+package blairHacks3;
+
+import java.util.Scanner;
+
+public class Selene {
+
+	public static void main(String[] args) throws InterruptedException {
+
+		Scanner watcher = new Scanner(System.in);
+		System.out.print("Hello? Is someone there?\n");
+		int c = 0;
+		while(true&&(c == 0)) {
+		String res1 = watcher.nextLine();
+		if((!res1.contains("ye"))&&(!res1.contains("no"))) {
+			System.out.print("Huh, I didn't quite get that, sorry! I'm still pretty groggy from sleeping, \nI only just woke up a little while ago, could you repeat that?\n\nIs someone there or no?\n");
+			continue;
+		}else {
+		if((res1.contains("ye"))) { //asks if someone is there
+			System.out.println("Really??? Do I know you???");
+			while(true) {
+			String res2 = watcher.nextLine();
+			if((res2.contains("ye"))) { //asks if the user has met selene before
+				int rn = (int)(Math.random()*3+1);
+					if(rn==1) {
+						System.out.println("Actually Though??? What's your name again?");
+					}else {
+					if(rn==2) {
+						System.out.println("No way!!! What's your name again?");
+					} else {
+					if(rn==3) {
+						System.out.println("Seriously?? Nice!! What's your name again?");
+					} else {
+						System.out.println("Awesome!! What's your name again?");
+					}}}
+				String name = watcher.nextLine();
+				System.out.println("Oh wait!!! I remember you now! :D I'm Selene, by the way, if you didn't remember!");
+				oldUser(name);
+				c = 1;
+				break;
+
+			} else {
+						if((res2.equalsIgnoreCase("no"))||(res2.equalsIgnoreCase("nope"))) {
+							System.out.print("Oh well!! I always love meeting new people!! What's your name?\n\n");
+							String name = watcher.nextLine();
+							System.out.println("\nOooooh, nice name! I'm Selene by the way!");
+							newUser(name);
+							c = 1;
+							break;
+						} else {
+							System.out.print("Huh, I didn't quite get that, sorry!!! I'm still pretty groggy from sleeping, \nI only just woke up a little while ago, could you repeat that? \n\nIf you do know me, I mean\n\n");
+						}
+						
+			}}
+		
+		}
+		
+		
+		if((res1.contains("no"))) {
+			System.out.println("oh");
+			Thread.sleep(2000);
+			System.out.println(":(");
+			Thread.sleep(1000);
+			System.out.println(":(((");
+			Thread.sleep(1000);
+			System.out.println(":((((((((");
+			Thread.sleep(2000);
+			System.out.println("big oof man");
+			break;
+		}
+		} 
+		break;
+		
+		}
+		}
+	
+	
+	public static void oldUser(String n) throws InterruptedException {
+		System.out.print("\nAnyway, " + n + ", it's super nice to talk to you again!\n\nWhat do you want to?\n\n");
+		numGuessingGame();
+		
+		}
+	
+	public static void newUser(String n) throws InterruptedException {
+		numGuessingGame();
+	}
+	
+	
+	public static void showMeme() throws InterruptedException {
+		Scanner reader = new Scanner(System.in);
+		System.out.println("Oh hey!!!! Do you wanna see this nice meme I found?\n\n");
+		String response = reader.nextLine();
+		if(response.contains("ye")) {
+			System.out.println("Oh yeet okay, just gimme a moment to find it andddddddd...\n\n");
+			Thread.sleep(2000);
+			System.out.println("Aha! Found it! Alright, check it out!");
+			Thread.sleep(500);
+			// YOOOOOOO Here's where you put a method that will randomly generate some random meme
+			System.out.println("It's so great, right???");
+		} else {
+			if(response.contains("no")) {
+				System.out.println("Okay, okay, okay, fineeeeee... in all honesty it was probably cringey anyway lollll");
+			} else {
+				System.out.println("Ehhhhh... I'll take that as a \"yes\", then!\n\nYeet okay, just gimme a moment to find it andddddddd...");
+				Thread.sleep(2000);
+				System.out.println("Aha! Found it! Alright, check it out!");
+				Thread.sleep(500);
+				// YOOOOOOO Here's where you put a method that will randomly generate some random meme
+				System.out.println("It's so great, right?");
+			}
+		}
+		
+	}//end showMeme() wheee
+	
+	public static void numGuessingGame() throws InterruptedException {
+		Scanner reader = new Scanner(System.in);
+		System.out.println("Oh wait! Do you wanna play a number guessing game with me?\n\n");
+		int a = 0;
+		while(true&&(a==0)) {
+		String res1 = reader.nextLine();
+		if((!res1.contains("no"))&&(!res1.contains("ye"))) {
+			System.out.println("Sorry, what was that?");
+			continue;
+		} else {
+		if(res1.contains("no")) {
+			System.out.println("k");
+			break;
+		}
+		if(res1.contains("ye")) {
+			System.out.println("\n\nAllriiiiiiight, let's go!\n\nChoose a number between 0 and 1000 and I'll try to guess!\n\nIf I need to guess lower type \"l\" and if I need to guess higher type \"h\"! \n\nOh! And if I get it, you can type uhhh, \"!\"? Yeah, type that!");
+			Thread.sleep(1000);
+			System.out.println("Cool, have you chosen your number? Hit enter when you're ready!");
+			String res2 = reader.nextLine();
+			System.out.println("Ayyyyy, let's go!");
+			int high = 1000;
+			int cur = 500;
+			int low = 0;
+			int go = 1;
+
+			while(true) {
+				if(go==1) {
+					cur = low + ((high-low)/2);
+				} else {
+					cur = high - ((high-low)/2);
+					
+				}
+				
+				// switch statement 
+		        int way = ((int)(Math.random()*5+1));
+		        String starter;
+		        switch (way) {
+		            case 1:  starter = "Hmmm... Is it...";
+		                     break;
+		            case 2:  starter = "How about, uhh...";
+		                     break;
+		            case 3:  starter = "Wait, what about...";
+		                     break;
+		            case 4:  starter = "Huh, is it...";
+		                     break;
+		            case 5:  starter = "What about...";
+		                     break;
+		            default: starter = "Dang, what about...";
+		                     break;
+		        }
+		        System.out.println(starter);
+				
+				System.out.println(""+cur+"?");
+				String thingg = reader.nextLine();
+				if(thingg.contains("ye")) {
+					System.out.println("Wait did I get it?? Yayyy!");
+					a = 1;
+					System.out.println("That was fun! I hope we can play again some time soon!");
+					break;
+				}
+				if(thingg.contains("l")) {
+					go = 0;
+					high = cur;
+				} else {
+				if(thingg.contains("h")) {
+					go = 1;
+					low = cur;
+				} else {
+					System.out.println("Wait did I get it?? Yayyy!");
+					a = 1;
+					System.out.println("That was fun! I hope we can play again some time soon!");
+					break;
+				}
+				}
+				a = 1;
+			}
+			}
+			continue;
+		}
+	
+		}//end first loop
+		
+	
+	}
+	
+}
+
+
+
