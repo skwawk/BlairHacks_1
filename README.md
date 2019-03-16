@@ -2,14 +2,11 @@
 Blair Hacks March 2019 Project: CatBot
 
 
-
-
 package blairhacks;
 
 import java.util.Scanner;
 
 public class Selene extends Cat {
-
 	private Scanner scanner;
 	
 	public Selene() {
@@ -18,51 +15,33 @@ public class Selene extends Cat {
 	
 	
 
-public void launch() {
+	public void launch() {
 
-	System.out.print("Hello? Is someone there?\n");
-	while (true) {
-		String res1 = scanner.nextLine();
-		if (res1.contains("ye")) { //asks if someone is there
-			System.out.println("Really??? Do I know you???");
-			while(true) {
-				String res2 = scanner.nextLine();
-				String name = "";
-				if (res2.contains("ye")) { //asks if the user has met selene before
-					System.out.println("Awesome!! What's your name again?");
-					name = scanner.nextLine();
-					System.out.println("Oh wait!!! I remember you now! I'm Selene, by the way, if you don't remember!");
-					oldUser(name);
-					break;
-				} else if (res2.equalsIgnoreCase("no") || res2.equalsIgnoreCase("nope")) {
-					System.out.print("Oh well!! I always love meeting new people!! What's your name?\n\n");
-					name = scanner.nextLine();
-					System.out.println("Hi " + name + "! I'm Selene.");
-					newUser(name);
-					break;
-				}
-			}	
-		} else if (res1.contains("no")) {
-			try {
-				System.out.println("oh");
-				Thread.sleep(2000);
-				System.out.println(":(");
-				Thread.sleep(1000);
-				System.out.println(":(((");
-				Thread.sleep(1000);
-				System.out.println(":((((((((");
-				Thread.sleep(2000);
-				System.out.println("big oof man");
-				break;
-			} catch (InterruptedException e) {
-				System.out.println(e);
-			}
-		} else {
-			System.out.print("Huh, I didn't quite get that, sorry! I'm still pretty groggy from sleeping, \nI only just woke up a little while ago, could you repeat that?\n\nIs someone there or no?\n");
-			continue;
-		}
-		
-			if (res1.contains("no")) {
+		System.out.print("Hello? Is someone there?\n");
+		while (true) {
+			String res1 = scanner.nextLine();
+			if (res1.contains("ye")) { //asks if someone is there
+				System.out.println("Really??? Do I know you???");
+				while (true) {
+					String res2 = scanner.nextLine();
+					String name = "";
+					if (res2.contains("ye")) { //asks if the user has met selene before
+						System.out.println("Awesome!! What's your name again?");
+						name = scanner.nextLine();
+						System.out.println("Oh wait!!! I remember you now! I'm Selene, by the way, if you don't remember!");
+						oldUser(name);
+						System.out.println("I'm so glad I got to talk to you, " + name + ". Hopefully I can see you again soon!");
+						break;
+					} else if (res2.equalsIgnoreCase("no") || res2.equalsIgnoreCase("nope")) {
+						System.out.print("Oh well!! I always love meeting new people!! What's your name?\n\n");
+						name = scanner.nextLine();
+						System.out.println("Hi " + name + "! I'm Selene.");
+						newUser(name);
+						System.out.println("I'm so glad I got to meet you, " + name + ". Hopefully we can spend more time together in the future!");
+						break;
+					}
+				}	
+			} else if (res1.contains("no")) {
 				try {
 					System.out.println("oh");
 					Thread.sleep(2000);
@@ -81,30 +60,126 @@ public void launch() {
 				System.out.print("Huh, I didn't quite get that, sorry! I'm still pretty groggy from sleeping, \nI only just woke up a little while ago, could you repeat that?\n\nIs someone there or no?\n");
 				continue;
 			}
-		
 		}
 	}
 	
 
 
 	public void oldUser(String n) {
-		System.out.print("Anyway, " + n + ", it's super nice to talk to you again!\n\n");
+		System.out.println("Anyway, " + n + ", it's super nice to talk to you again!");
 		System.out.println("I remember that you were super kind to me last time we talked.");
 		System.out.println("I think we talked a little about each of ourselves. Can you remind me about you?");
 		System.out.println("You told me there was something that you were really good at. What was it again?");
 		scanner.nextLine();
 		System.out.println("Oh yeah! You told me all about it because I found it super cool!");
 		System.out.println("I'm so glad we're friends. I really like you, " + n + "!");
+		System.out.println("Do you want to keep talking?");
+		String yesNo = scanner.nextLine();
+		switch (yesNo.toLowerCase()) {
+			case "no": return;
+			case "n": return;
+			case "q": return;
+			case "quit": return;
+			case "bye": return;
+			case "goodbye": return;
+			default: break;
+		}
+		System.out.println("Thanks for staying with me!");
+		System.out.println("You should tell me about your favorite happy memory!");
+		yesNo = scanner.nextLine();
+		switch (yesNo.toLowerCase()) {
+			case "no": return;
+			case "n": return;
+			case "q": return;
+			case "quit": return;
+			case "bye": return;
+			case "goodbye": return;
+			default: break;
+		}
+		System.out.println("That makes me happy, too!");
+		System.out.println("Maybe you can tell me about something you did that made you proud of yourself?");
+		yesNo = scanner.nextLine();
+		switch (yesNo.toLowerCase()) {
+			case "no": return;
+			case "n": return;
+			case "q": return;
+			case "quit": return;
+			case "bye": return;
+			case "goodbye": return;
+			default: break;
+		}
+		System.out.println("Anything else you want to tell me?");
+		yesNo = scanner.nextLine();
+		switch (yesNo.toLowerCase()) {
+			case "no": return;
+			case "n": return;
+			case "q": return;
+			case "quit": return;
+			case "bye": return;
+			case "goodbye": return;
+			default: break;
+		}	
 	}
 
 	public void newUser(String n) {
+		System.out.println("Okay " + n + ", how about we get to know each other?");
+		System.out.println("I'll go first.");
+		System.out.println("I would say I'm playful and friendly. I'm really good at doing math, and I enjoy playing games with my friends.");
+		System.out.println("How would you describe yourself?");
+		scanner.hasNextLine();
+		System.out.println("What are some things that you like to do?");
+		scanner.nextLine();
+		System.out.println("What's something that you're good at?");
+		scanner.nextLine();
+		System.out.println("I'm really starting to like you, " + n + ". I hope we'll be good friends!");
+		System.out.println("Do you want to keep talking?");
+		String yesNo = scanner.nextLine();
+		switch (yesNo.toLowerCase()) {
+			case "no": return;
+			case "n": return;
+			case "q": return;
+			case "quit": return;
+			case "bye": return;
+			case "goodbye": return;
+			default: break;
+		}
+		System.out.println("Thanks for staying with me!");
+		System.out.println("You should tell me about your favorite happy memory!");
+		yesNo = scanner.nextLine();
+		switch (yesNo.toLowerCase()) {
+			case "no": return;
+			case "n": return;
+			case "q": return;
+			case "quit": return;
+			case "bye": return;
+			case "goodbye": return;
+			default: break;
+		}
+		System.out.println("That makes me happy, too!");
+		System.out.println("Maybe you can tell me about something you did that made you proud of yourself?");
+		yesNo = scanner.nextLine();
+		switch (yesNo.toLowerCase()) {
+			case "no": return;
+			case "n": return;
+			case "q": return;
+			case "quit": return;
+			case "bye": return;
+			case "goodbye": return;
+			default: break;
+		}
+		System.out.println("Anything else you want to tell me?");
+		yesNo = scanner.nextLine();
+		switch (yesNo.toLowerCase()) {
+			case "no": return;
+			case "n": return;
+			case "q": return;
+			case "quit": return;
+			case "bye": return;
+			case "goodbye": return;
+			default: break;
+		}
 	
 	}
 
 
 }
-
-
-
-
-
