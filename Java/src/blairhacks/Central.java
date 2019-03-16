@@ -11,9 +11,9 @@ public class Central {
 		System.out.println("There are three CatBots that you can talk to.");
 		System.out.println("Lilly is here to chat to help you feel positive.");
 		System.out.println("Nyan is here to feed you memes.");
-		System.out.println("And Olivia doesn't know that she's a bot, but she's trying her best...");
+		System.out.println("And Selene doesn't know that she's a bot, but she's trying her best...");
 		System.out.println("You can also talk to a normal cat.");
-		System.out.println("Enter L for Lilly, N for Nyan, O for Olivia, C for a normal cat, or q to quit:");
+		System.out.println("Enter L for Lilly, N for Nyan, S for Selene, C for a normal cat, or q to quit:");
 		boolean loop = true;
 		String response = "";
 		while (loop) {
@@ -21,54 +21,62 @@ public class Central {
 			boolean validated = true;
 			Cat c;
 			switch (response.toLowerCase()) {
-				/*case "l":
+				case "l":
 					c = new Lilly();
 					break;
-				case "n":
+				/*case "n":
 					c = new Nyan();
 					break;
-				case "o":
-					c = new Olivia();
+				case "s":
+					c = new Selene();
 					break;
 					*/
 				case "c":
 					c = new Cat();
 					break;
-					/*
 				case "q":
+					c = null;
 					loop = false;
 					break;
+					/*
 				case "t":
 					c = new Tmdl();
 					break;
+					*/
 				case "lilly":
 					c = new Lilly();
 					break;
+					/*
 				case "nyan":
 					c = new Nyan();
 					break;
-				case "olivia":
-					c = new Olivia();
+				case "selene":
+					c = new Selene();
 					break;
+					*/
 				case "cat":
 					c = new Cat();
 					break;
 				case "quit":
+					c = null;
 					loop = false;
 					break;
 				case "goodbye":
+					c = null;
 					loop = false;
 					break;
 				case "bye":
+					c = null;
 					loop = false;
 					break;
 				case "end":
+					c = null;
 					loop = false;
 					break;
 				case "tmdl":
-					c = new Tmdl();
+					c = new Cat();
+					System.out.println("Protect the ecosystem from TMDL guys!");
 					break;
-					*/
 				default:
 					validated = false;
 					c = null;
@@ -83,7 +91,7 @@ public class Central {
 					System.out.println("You can interact with another CatBot or quit the program.");
 				}
 				
-				System.out.println("Enter L for Lilly, N for Nyan, O for Olivia, C for a cat, or Q to quit:");
+				System.out.println("Enter L for Lilly, N for Nyan, S for Selene, C for a cat, or Q to quit:");
 			}
 			
 		}

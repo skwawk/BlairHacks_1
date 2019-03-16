@@ -3,9 +3,10 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Cat {
-	double CHANCE_OF_BLINK = .25;
-	double CHANCE_OF_YAWN = .3;
-	double CHANCE_OF_MEOW = .35;
+	double CHANCE_OF_BLINK = .15;
+	double CHANCE_OF_YAWN = .2;
+	double CHANCE_OF_MEOW = .3;
+	double CHANCE_OF_MREOW = .4;
 	double CHANCE_OF_SLOW_MEOW = .5;
 	double CHANCE_OF_MEW = .63;
 	double CHANCE_OF_QUESTION = .75;
@@ -17,7 +18,7 @@ public class Cat {
 	Scanner scanner;
 	Random rand;
 	String name;
-	static String[] nameList = {"Whiskers", "Mittens", "Oliver", "Button", "Tiger", "Pinball", "Priscilla", "Napoleon", "Tom", "Garfield", "Hamilton"};
+	static String[] nameList = {"Whiskers", "Mittens", "Oliver", "Olivia", "Button", "Tiger", "Pinball", "Priscilla", "Napoleon", "Tom", "Garfield", "Hamilton"};
 	
 	public Cat() {
 		rand = new Random();
@@ -33,13 +34,10 @@ public class Cat {
 		System.out.println("Say hello: ");
 		String response = scanner.nextLine();
 		while ((!response.toLowerCase().equals("q")) && (!response.toLowerCase().equals("quit")) && (!response.toLowerCase().equals("bye")) && (!response.toLowerCase().equals("bye!")) && (!response.toLowerCase().equals("goodbye")) && (!response.toLowerCase().equals("goodbye!"))) {
-			if (response.toLowerCase() == "q") {
-				System.out.println("quit");
-			}
 			respond(response);
 			response = scanner.nextLine();
 		}
-		System.out.println("Meow! Translation: Bye!");
+		System.out.println("Meow! Bye!");
 	}
 	
 	public void respond(String in) {
@@ -56,6 +54,8 @@ public class Cat {
 				System.out.println("*yawns*");
 			} else if (randoNumero < CHANCE_OF_MEOW) {
 				System.out.println("Meow...");
+			} else if (randoNumero < CHANCE_OF_MREOW) {
+				System.out.println("Mreow?");
 			} else if (randoNumero < CHANCE_OF_SLOW_MEOW) {
 				System.out.println("Meeeoooooww!");
 			} else if (randoNumero < CHANCE_OF_MEW) {
