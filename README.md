@@ -1,105 +1,112 @@
 # BlairHacks_1
 Blair Hacks March 2019 Project: CatBot
 
-
 package blairhacks;
-
+import java.util.Random;
 import java.util.Scanner;
 
-public class Central {
+public class Cat {
+	double CHANCE_OF_BLINK = .15;
+	double CHANCE_OF_YAWN = .2;
+	double CHANCE_OF_MEOW = .3;
+	double CHANCE_OF_MREOW = .4;
+	double CHANCE_OF_SLOW_MEOW = .5;
+	double CHANCE_OF_MEW = .63;
+	double CHANCE_OF_QUESTION = .75;
+	double CHANCE_OF_PURR = .85;
+	double CHANCE_OF_HEAD_TURN = .9;
+	double CHANCE_OF_TAIL_TWITCH = .97;
+	double CHANCE_OF_SNEEZE = 1;
 	
-	public static void main(String[] args) {
-		Scanner scanner = new Scanner(System.in);
-		
-		System.out.println("Welcome to CatBot!");
-		System.out.println("There are three CatBots that you can talk to.");
-		System.out.println("Lilly is here to chat to help you feel positive.");
-		System.out.println("Nyan is here to feed you memes.");
-		System.out.println("And Selene doesn't know that she's a bot, but she's trying her best...");
-		System.out.println("You can also talk to a normal cat.");
-		System.out.println("Enter L for Lilly, N for Nyan, S for Selene, C for a normal cat, or q to quit:");
-		boolean loop = true;
-		String response = "";
-		while (loop) {
+	
+	Scanner scanner;
+	Random rand;
+	String name;
+	static String[] nameList = {"Whiskers", "Mittens", "Oliver", "Olivia", "Princess", "Clarence", "Button", "Tiger", "Pinball", "Priscilla", "Napoleon", "Tom", "Garfield", "Hamilton"};
+	
+	public Cat() {
+		rand = new Random();
+		scanner = new Scanner(System.in);
+		name = nameList[rand.nextInt(nameList.length)];
+	}
+	
+	public void launch() {
+		System.out.println("Meow meow mew meow");
+		System.out.println("Translation: Hello there! I'm " + name + " the CatBot.");
+		System.out.println("You can say whatever you want to me.");
+		System.out.println("If you want to quit to the main menu, just type quit or q.");
+		System.out.println("Say hello: ");
+		String response = scanner.nextLine();
+		while ((!response.toLowerCase().equals("q")) && (!response.toLowerCase().equals("quit")) && (!response.toLowerCase().equals("bye")) && (!response.toLowerCase().equals("bye!")) && (!response.toLowerCase().equals("goodbye")) && (!response.toLowerCase().equals("goodbye!"))) {
+			respond(response);
 			response = scanner.nextLine();
-			boolean validated = true;
-			Cat c;
-			switch (response.toLowerCase()) {
-				case "l":
-					c = new Lilly();
-					break;
-				case "n":
-					c = new Nyan();
-					break;
-				//case "s":
-					//c = new Selene();
-					//break;
-				case "c":
-					c = new Cat();
-					break;
-				case "q":
-					c = null;
-					loop = false;
-					break;
-					/*
-				case "t":
-					c = new Tmdl();
-					break;
-					*/
-				case "lilly":
-					c = new Lilly();
-					break;
-					
-				case "nyan":
-					c = new Nyan();
-					break;
-				//case "selene":
-					//c = new Selene();
-					//break;
-				case "cat":
-					c = new Cat();
-					break;
-				case "quit":
-					c = null;
-					loop = false;
-					break;
-				case "goodbye":
-					c = null;
-					loop = false;
-					break;
-				case "bye":
-					c = null;
-					loop = false;
-					break;
-				case "end":
-					c = null;
-					loop = false;
-					break;
-				case "tmdl":
-					c = new Cat();
-					System.out.println("Protect the ecosystem from TMDL guys!");
-					break;
-				default:
-					validated = false;
-					c = null;
-					System.out.println("Please enter the name or initial of one of our four CatBots.");
-					break;			
+		}
+		System.out.println("Meow! Bye!");
+	}
+	
+	public void respond(String in) {
+		in = in.toLowerCase();
+		if (in.contains(name.toLowerCase())) {
+			System.out.println("*perks ears* Mew?");
+		} else if (in.contains("good kitty") || in.contains("pretty kitty")) {
+			System.out.println("purrrrrr!");
+		} else if (in.contains("pet")) {
+			double randoNumero = rand.nextDouble();
+			if (randoNumero > .5) {
+				System.out.println("*rolls over for a belly rub*");
+			} else {
+				System.out.println("*puts head down so you can scratch their ears*");
 			}
-			
-			if (loop) {
-				if (validated) {
-					c.launch();
-					System.out.println("Thanks for interacting with one of our CatBots!");
-					System.out.println("You can interact with another CatBot or quit the program.");
-				}
-				
-				System.out.println("Enter L for Lilly, N for Nyan, S for Selene, C for a cat, or Q to quit:");
-			}
-			
+		} else if (in.equals("mew")) {
+			System.out.println("Mew?");
+		} else if (in.contains("mew!")) {
+			System.out.println("Mew!!");
+		} else if (in.equals("mew?")) {
+			System.out.println("Mew!");
+		} else if (in.contains("blinks")) {
+			System.out.print("*blinks once*");
+		} else if (in.contains("stares")) {
+			System.out.print("*stares back*");
+		} else if (in.contains(" feed ") || in.contains(" food ")) {
+			System.out.println("*sits upright and alert*");
+		} else if (in.contains("hi") || in.contains("hello")) {
+			System.out.println("Mrrrrrrow");
+		} else if (in.contains("meow")) {
+			System.out.println("Meow!");
+		} else if (in.contains("bless you")) {
+			System.out.println("*stretches*");
+		} else if (in.contains("you")) {
+			System.out.println("*curls up in your lap*");
 		}
 		
-		System.out.println("Thanks for chatting with the CatBots!");
-		System.out.println("Have a lovely day!");
+		else {
+			double randoNumero = rand.nextDouble();
+			if (randoNumero < CHANCE_OF_BLINK) {
+				System.out.println("*blinks slowly*");
+			} else if (randoNumero < CHANCE_OF_YAWN) {
+				System.out.println("*yawns*");
+			} else if (randoNumero < CHANCE_OF_MEOW) {
+				System.out.println("Meow...");
+			} else if (randoNumero < CHANCE_OF_MREOW) {
+				System.out.println("Mreow?");
+			} else if (randoNumero < CHANCE_OF_SLOW_MEOW) {
+				System.out.println("Meeeoooooww!");
+			} else if (randoNumero < CHANCE_OF_MEW) {
+				System.out.println("Mew!");
+			} else if (randoNumero < CHANCE_OF_QUESTION) {
+				System.out.println("Mew?");
+			} else if (randoNumero < CHANCE_OF_PURR){
+				System.out.println("prrrrrrrr");
+			} else if (randoNumero < CHANCE_OF_HEAD_TURN) {
+				System.out.println("*turns head to one side*");
+			} else if (randoNumero < CHANCE_OF_TAIL_TWITCH) {
+				System.out.println("*tail twitches*");
+			} else if (randoNumero < CHANCE_OF_SNEEZE) {
+				System.out.println("*sneezes* Choo!");
+			}
+		}
 	}
+	
+	
 
 }
