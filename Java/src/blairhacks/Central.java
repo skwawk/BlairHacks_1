@@ -84,7 +84,6 @@ public class Central {
 				}
 				
 				System.out.println("Enter L for Lilly, N for Nyan, O for Olivia, C for a cat, or Q to quit:");
-				response = scanner.nextLine();
 			}
 			
 		}

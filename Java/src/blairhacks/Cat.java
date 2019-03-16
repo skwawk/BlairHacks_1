@@ -32,7 +32,10 @@ public class Cat {
 		System.out.println("If you want to quit to the main menu, just type quit or q.");
 		System.out.println("Say hello: ");
 		String response = scanner.nextLine();
-		while (response.toLowerCase() != "q" && response.toLowerCase() != "quit") {
+		while ((!response.toLowerCase().equals("q")) && (!response.toLowerCase().equals("quit")) && (!response.toLowerCase().equals("bye")) && (!response.toLowerCase().equals("bye!")) && (!response.toLowerCase().equals("goodbye")) && (!response.toLowerCase().equals("goodbye!"))) {
+			if (response.toLowerCase() == "q") {
+				System.out.println("quit");
+			}
 			respond(response);
 			response = scanner.nextLine();
 		}
@@ -41,7 +44,7 @@ public class Cat {
 	
 	public void respond(String in) {
 		in = in.toLowerCase();
-		if (in.contains(name)) {
+		if (in.contains(name.toLowerCase())) {
 			System.out.println("*perks ears* Mew?");
 		} else if (in.contains("good kitty") || in.contains("pretty kitty")) {
 			System.out.println("purrrrrr!");
