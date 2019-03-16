@@ -9,6 +9,7 @@ package blairhacks;
 import java.util.Scanner;
 
 public class Selene extends Cat {
+
 	private Scanner scanner;
 	
 	public Selene() {
